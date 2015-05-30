@@ -1,0 +1,40 @@
+[user]
+  name = Danny van der Heiden
+  email = dannyvdheiden@gmail.com
+[core]
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  editor = mvim
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+  up = pull
+  br = branch
+  df = diff
+  lg = log -p
+  aa = add --all
+  unstage = reset HEAD
+  new = ls-files --others --exclude-standard
+  added = diff --cached --name-only
+  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  ff = merge --ff-only
+  newauthor = commit --amend --reset-author -C HEAD
+  la = !git l --all
+  scoreboard = "!git log | grep '^Author' | sort | uniq -ci | sort -r"
+[color]
+  ui = true
+  diff = auto
+  status = auto
+  branch = auto
+[help]
+  autocorrect = 1
+[diff]
+  renames = copies
+[diff "ruby"]
+  funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
+[push]
+  default = upstream
+[branch]
+  autosetuprebase = always
+[http]
+  postBuffer = 100m
