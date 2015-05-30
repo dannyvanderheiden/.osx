@@ -1,0 +1,26 @@
+#!/bin/sh
+set -e
+
+current=`pwd`
+
+scriptdir=`dirname $0`
+scriptpath=`cd $scriptdir && pwd`
+rcdir=`cd $scriptpath && cd ../rc && pwd`
+
+echo "------------------------------"
+echo "Installing OSX settings..."
+
+# Symlink RC files
+pattern='^[a-z]{2,}'
+
+for f in $rcdir/*; do
+  file=`basename $f`
+
+  if [[ "${file}" =~ $pattern ]]; then
+    echo "> Creating symlink: .$file"
+    ln -fs $rcdir/$file "$HOME/.$file"
+  fi
+done
+
+echo "OSX settings finished!"
+echo "------------------------------"
